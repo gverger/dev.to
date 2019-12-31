@@ -6,7 +6,15 @@ RSpec.describe "Editing with an editor", type: :system, js: true do
   let_it_be(:article, reload: true) { create(:article, user: user, body_markdown: template) }
 
   before do
+    puts "******"
+    puts user.valid?
+    puts user.errors.messages
+    puts "******"
     sign_in user
+    puts "******"
+    puts user.valid?
+    puts user.errors.messages
+    puts "******"
   end
 
   it "user clicks the edit button" do

@@ -7,7 +7,7 @@ FactoryBot.define do
   image_path = Rails.root.join("spec/support/fixtures/images/image1.jpeg")
 
   factory :user do
-    name                         { Faker::Name.name }
+    name                         { Faker::Name.name.first(90) }
     email                        { generate :email }
     username                     { generate :username }
     profile_image                { Rack::Test::UploadedFile.new(image_path, "image/jpeg") }
@@ -21,6 +21,8 @@ FactoryBot.define do
     checked_terms_and_conditions { true }
     signup_cta_variant           { "navbar_basic" }
     email_digest_periodic        { false }
+    text_color_hex               { nil }
+    bg_color_hex                 { nil }
 
     after(:create) do |user|
       create(:identity, user_id: user.id)

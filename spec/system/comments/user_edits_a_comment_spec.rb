@@ -13,7 +13,15 @@ RSpec.describe "Editing A Comment", type: :system, js: true do
   end
 
   before do
+    puts "******"
+    puts user.valid?
+    puts user.errors.messages
+    puts "******"
     sign_in user
+    puts "******"
+    puts user.valid?
+    puts user.errors.messages
+    puts "******"
   end
 
   def assert_updated
