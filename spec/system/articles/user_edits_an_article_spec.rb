@@ -6,20 +6,21 @@ RSpec.describe "Editing with an editor", type: :system, js: true do
   let_it_be(:article, reload: true) { create(:article, user: user, body_markdown: template) }
 
   before do
-    puts "******"
+    puts "-------"
     puts user.valid?
     puts user.errors.messages
-    puts "******"
+    puts "-------"
     sign_in user
-    puts "******"
+    puts "-------"
     puts user.valid?
     puts user.errors.messages
-    puts "******"
+    puts "-------"
   end
 
   it "user clicks the edit button" do
     link = "/#{user.username}/#{article.slug}"
     visit link
+    expect(page).to have_text("EDIT")
     click_on("EDIT")
     expect(page).to have_current_path(link + "/edit")
   end

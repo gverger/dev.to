@@ -13,15 +13,15 @@ RSpec.describe "Editing A Comment", type: :system, js: true do
   end
 
   before do
-    puts "******"
+    puts "-------"
     puts user.valid?
     puts user.errors.messages
-    puts "******"
+    puts "-------"
     sign_in user
-    puts "******"
+    puts "-------"
     puts user.valid?
     puts user.errors.messages
-    puts "******"
+    puts "-------"
   end
 
   def assert_updated
@@ -34,6 +34,7 @@ RSpec.describe "Editing A Comment", type: :system, js: true do
   context "when user edits comment on the bottom of the article" do
     it "updates" do
       visit article.path.to_s
+      expect(page).to have_text("EDIT")
       click_link("EDIT")
       assert_updated
     end
@@ -43,6 +44,7 @@ RSpec.describe "Editing A Comment", type: :system, js: true do
     it "updates" do
       user.reload
       visit user.comments.last.path.to_s
+      expect(page).to have_text("EDIT")
       click_link("EDIT")
       assert_updated
     end

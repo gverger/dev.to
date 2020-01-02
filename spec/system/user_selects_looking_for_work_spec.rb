@@ -5,24 +5,24 @@ RSpec.describe "Looking For Work" do
   let(:tag) { create(:tag, name: "hiring") }
 
   before do
-    puts "******"
+    puts "-------"
     puts user.valid?
     puts user.errors.messages
-    puts "******"
+    puts "-------"
     sign_in(user)
-    puts "******"
+    puts "-------"
     puts user.valid?
     puts user.errors.messages
-    puts "******"
+    puts "-------"
     tag
   end
 
   it "user selects looking for work and autofollows hiring tag" do
-    puts "******"
+    puts "-------"
     puts user.text_color_hex
     puts tag.text_color_hex
     puts user.bg_color_hex
-    puts "******"
+    puts "-------"
     visit "/settings"
     page.check "Looking for work"
     perform_enqueued_jobs do
