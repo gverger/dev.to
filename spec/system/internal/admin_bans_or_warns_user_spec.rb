@@ -5,7 +5,15 @@ RSpec.describe "Admin bans user", type: :system do
   let(:user)   { create(:user) }
 
   before do
+    puts "-------"
+    puts admin.valid?
+    puts admin.errors.messages
+    puts "-------"
     sign_in admin
+    puts "-------"
+    puts admin.valid?
+    puts admin.errors.messages
+    puts "-------"
     visit "/internal/users/#{user.id}/edit"
   end
 
