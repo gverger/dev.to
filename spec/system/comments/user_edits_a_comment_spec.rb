@@ -14,8 +14,8 @@ RSpec.describe "Editing A Comment", type: :system, js: true do
 
   before do
     puts "-------"
-    puts user.valid?
-    puts user.errors.messages
+    puts user.username
+    puts comment.user.username
     puts "-------"
     sign_in user
     puts "-------"
@@ -26,6 +26,7 @@ RSpec.describe "Editing A Comment", type: :system, js: true do
 
   def assert_updated
     expect(page).to have_css("textarea[autofocus='autofocus']")
+    expect(page).to have_text("SUBMIT")
     fill_in "text-area", with: new_comment_text
     click_button("SUBMIT")
     expect(page).to have_text(new_comment_text)

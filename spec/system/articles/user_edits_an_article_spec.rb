@@ -7,8 +7,8 @@ RSpec.describe "Editing with an editor", type: :system, js: true do
 
   before do
     puts "-------"
-    puts user.valid?
-    puts user.errors.messages
+    puts user.username
+    puts article.user.username
     puts "-------"
     sign_in user
     puts "-------"

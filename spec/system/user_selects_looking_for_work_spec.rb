@@ -25,6 +25,7 @@ RSpec.describe "Looking For Work" do
     puts "-------"
     visit "/settings"
     page.check "Looking for work"
+    expect(page).to have_text("SUBMIT")
     perform_enqueued_jobs do
       click_button("SUBMIT")
     end
