@@ -18,10 +18,6 @@ RSpec.describe "Editing A Comment", type: :system, js: true do
     puts comment.user.username
     puts "-------"
     login_as(user, :scope => :user)
-    puts "-------"
-    puts user.valid?
-    puts user.errors.messages
-    puts "-------"
   end
 
   def assert_updated

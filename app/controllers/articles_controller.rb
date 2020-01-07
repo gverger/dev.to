@@ -87,6 +87,10 @@ class ArticlesController < ApplicationController
   end
 
   def edit
+    puts "-------"
+    puts current_user.username
+    puts "-------"
+
     authorize @article
     @version = @article.has_frontmatter? ? "v1" : "v2"
     @user = @article.user
@@ -147,6 +151,10 @@ class ArticlesController < ApplicationController
   end
 
   def update
+    puts "-------"
+    puts current_user.username
+    puts "-------"
+
     authorize @article
     @user = @article.user || current_user
 

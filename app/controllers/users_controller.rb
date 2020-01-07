@@ -6,6 +6,10 @@ class UsersController < ApplicationController
 
   # GET /settings/@tab
   def edit
+    puts "-------"
+    puts current_user.username
+    puts "-------"
+
     unless current_user
       skip_authorization
       return redirect_to sign_up_path
@@ -17,6 +21,10 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/:id.:format
   def update
+    puts "-------"
+    puts current_user.username
+    puts "-------"
+
     set_tabs(params["user"]["tab"])
     if @user.update(permitted_attributes(@user))
       RssReaderFetchUserJob.perform_later(@user.id)

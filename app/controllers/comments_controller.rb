@@ -38,6 +38,10 @@ class CommentsController < ApplicationController
   # GET /comments/1/edit
 
   def edit
+    puts "-------"
+    puts current_user.username
+    puts "-------"
+
     @comment = Comment.find(params[:id_code].to_i(26))
     authorize @comment
     @parent_comment = @comment.parent

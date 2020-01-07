@@ -10,10 +10,6 @@ RSpec.describe "Looking For Work", type: :system do
     puts user.errors.messages
     puts "-------"
     login_as(user, :scope => :user)
-    puts "-------"
-    puts user.valid?
-    puts user.errors.messages
-    puts "-------"
     tag
   end
 
