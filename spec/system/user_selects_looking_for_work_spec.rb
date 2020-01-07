@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe "Looking For Work" do
+RSpec.describe "Looking For Work", type: :system do
   let(:user) { create(:user) }
   let(:tag) { create(:tag, name: "hiring") }
 
@@ -9,7 +9,7 @@ RSpec.describe "Looking For Work" do
     puts user.valid?
     puts user.errors.messages
     puts "-------"
-    sign_in(user)
+    login_as(user, :scope => :user)
     puts "-------"
     puts user.valid?
     puts user.errors.messages

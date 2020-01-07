@@ -77,6 +77,8 @@ RSpec.configure do |config|
   config.include OmniauthMacros
   config.include SidekiqTestHelpers
 
+  config.include Warden::Test::Helpers
+
   config.before do
     ActiveRecord::Base.observers.disable :all # <-- Turn 'em all off!
 
@@ -85,6 +87,7 @@ RSpec.configure do |config|
 
   config.after do
     SiteConfig.clear_cache
+    Warden.test_reset!
   end
 
   # Only turn on VCR if :vcr is included metadata keys

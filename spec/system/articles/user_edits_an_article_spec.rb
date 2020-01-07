@@ -10,7 +10,7 @@ RSpec.describe "Editing with an editor", type: :system, js: true do
     puts user.username
     puts article.user.username
     puts "-------"
-    sign_in user
+    login_as(user, :scope => :user)
     puts "-------"
     puts user.valid?
     puts user.errors.messages

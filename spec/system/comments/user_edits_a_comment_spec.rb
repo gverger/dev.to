@@ -17,7 +17,7 @@ RSpec.describe "Editing A Comment", type: :system, js: true do
     puts user.username
     puts comment.user.username
     puts "-------"
-    sign_in user
+    login_as(user, :scope => :user)
     puts "-------"
     puts user.valid?
     puts user.errors.messages

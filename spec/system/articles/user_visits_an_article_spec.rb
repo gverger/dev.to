@@ -6,7 +6,7 @@ RSpec.describe "Views an article", type: :system do
   let(:timestamp) { "2019-03-04T10:00:00Z" }
 
   before do
-    sign_in user
+    login_as(user, :scope => :user)
   end
 
   it "shows an article" do
